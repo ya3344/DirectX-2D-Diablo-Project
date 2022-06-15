@@ -1,0 +1,344 @@
+#pragma once
+
+
+// SOUND 
+enum CHANNAL
+{
+	BGM,
+	ENEMY_SOUND,
+	BOSS_SOUND,
+	EFFECT_SOUND,
+	UI_SOUND,
+	BUTTON_SOUND,
+	PLAYER_SOUND,
+	DAMAGED_SOUND,
+	CHANNEL_END,
+};
+
+enum WINDOW_SIZE
+{
+	WINDOW_WIDTH = 800,
+	WINDOW_HEIGHT = 600,
+};
+
+enum TILE
+{
+	TILE_WIDTH = 160,
+	TILE_HEIGHT = 80,
+
+	TILE_AVAILABLE = 0,
+	TILE_BLOCK,
+	TILE_WARP_ENTRANCE,
+	TILE_TOWN_PORTAL = 6,
+
+};
+
+enum TILE_DIRECTION
+{
+	LEFT,
+	UP,
+	RIGHT,
+	DOWN,
+	DIRECTION_END,
+};
+
+enum TEXTURE_TYPE 
+{	
+	TEXTURE_SINGLE, 
+	TEXTURE_MULTI 
+};
+
+enum class STAGE
+{
+	LOGO,
+	VILLAGE,
+	ACT1,
+	ACT4,
+	END
+};
+
+enum OBJ_ID 
+{ 
+	OBJ_EFFECT,
+	OBJ_UI,
+	OBJ_MOUSE,
+	OBJ_BACK, 
+	OBJ_PLAYER,
+	OBJ_ENEMY,
+	OBJ_OBSTACLE,
+	OBJ_OBSTACLESAMPLE,
+	OBJ_ENEMYSAMPLE,
+	OBJ_END 
+};
+
+enum OBJ_EVENT
+{
+	OBJ_NORMAL,
+	OBJ_SCENECHANGE,
+	OBJ_DIE,
+};
+
+enum OBJ_STATE
+{
+	OBJ_NEUTRAL,
+	OBJ_MOVE,
+	OBJ_ATTACK,
+	OBJ_SPECIAL,
+	OBJ_FIRE_CAST,
+	OBJ_BOSS_SUMMON_CAST,
+};
+
+enum DATA_ID 
+{ 
+	PLAYER_DATA, 
+	PLAYER_MATRIX 
+};
+
+
+
+// Enum Class
+enum class DIRECTION : size_t
+{
+	UP,
+	RU,
+	RIGHT,
+	RD,
+	DOWN,
+	LD,
+	LEFT,
+	LU,
+	DIRECTION_END,
+};
+
+// MODE
+enum class MODE
+{
+	NEUTRAL,
+	WALK,
+	RUN,
+	ATTACK,
+	TRANSFORM,
+	DEATH,
+	REVIVE,
+	SKILL_ATTACK,
+	SPECIAL,
+	SPECIAL_CAST,
+	GETHIT,
+	FIRE_CAST,
+	END,
+};
+
+enum PLAYER_TYPE
+{
+	HUMAN,
+	WOLF,
+	BEAR,
+	PLAYER_END,
+};
+
+// Player Animation Frame
+enum class HUMAN_FRAME : size_t
+{
+	NEUTRAL = 10,
+	WALK = 8,
+	RUN = 8,
+	ATTACK = 16,
+	GETHIT = 7,
+	SKILL_ATTACK = 15,
+	SPECIAL_CAST = 15
+
+};
+
+
+enum class WOLF_FRAME : size_t
+{
+	NEUTRAL = 9,
+	WALK = 8,
+	RUN = 8,
+	ATTACK = 13,
+	GETHIT = 4,
+	SKILL_ATTACK = 10,
+	SPECIAL_CAST = 11, // 16
+	TRANSFORM = 16,
+};
+
+
+enum class BEAR_FRAME : size_t
+{
+	NEUTRAL = 10,
+	WALK = 8,
+	RUN = 8,
+	ATTACK = 12,
+	GETHIT = 5,
+	SKILL_ATTACK = 10, // 8
+	SPECIAL_CAST = 10, // 8
+	TRANSFORM = 16,
+};
+
+
+// Enemy
+enum ENEMY_TYPE
+{
+	FALLEN,
+	FALLEN_SHAMON,
+	COUNCIL,
+	COUNTESS,
+	WRAITH,
+	DEMON,
+	DIABLO,
+	ANIMAL,
+	ENEMY_END,
+};
+
+// Death 1 Revive 1
+enum class FALLEN_FRAME : size_t
+{
+	ATTACK = 10,
+	DEATH = 20,
+	NEUTRAL = 20,
+	REVIVE = 24,
+	GETHIT = 4,
+	RUN = 10,
+};
+
+// Death 1
+enum class FALLEN_SHAMAN_FRAME : size_t
+{
+	DEATH = 21,
+	NEUTRAL = 12,
+	RUN = 14,
+	GETHIT = 4,
+	SPECIAL_CAST = 17,
+};
+
+// DEATH 8
+enum class COUNCIL_FRAME : size_t
+{
+	ATTACK = 10,
+	DEATH = 19,
+	GETHIT = 4,
+	NEUTRAL = 7,
+	RUN = 11,
+	SPECIAL_CAST = 14,
+};
+
+// DEATH 8
+enum class COUNTESS_FRAME : size_t
+{
+	ATTACK = 16,
+	DEATH = 25,
+	GETHIT = 9,
+	NEUTRAL = 7,
+	RUN = 10,
+};
+
+// DEATH 8
+enum class WRAITH_FRAME : size_t
+{
+	ATTACK = 14,
+	DEATH = 20,
+	GETHIT = 4,
+	NEUTRAL = 8,
+	RUN = 10,
+};
+
+
+// DEATH 8
+enum class DEMON_FRAME : size_t
+{
+	ATTACK = 16,
+	DEATH = 20,
+	GETHIT = 6,
+	NEUTRAL = 8,
+	RUN = 8,
+	SPECIAL_CAST = 12,
+};
+
+// RUN 16
+enum class ANIMAL_FRAME : size_t
+{
+	ATTACK = 17,
+	SPECIAL_CAST = 19,
+	DEATH = 18,
+	GETHIT = 5,
+	NEUTRAL = 12,
+	RUN = 12,
+};
+
+
+// DEATH 1 
+enum class DIABLO_FRAME : size_t
+{
+	ATTACK = 16,
+	DEATH = 142,
+	FIRE_CAST = 18,
+	GETHIT = 6,
+	NEUTRAL = 12,
+	RUN = 22,
+	SPECIAL = 17,
+	SPECIAL_CAST = 16,
+	WALK = 12
+};
+
+
+// Skill Type
+enum SKILL_TYPE
+{
+	TRANSFORM,
+	REVIVE,
+	TOWNPROTAL,
+	REDPORTAL,
+	BOULDER_ROLL,
+	BOULDER_EXPOLDE,
+	BOULDER_EMERGE,
+	GROUND_FIRE,
+	DIABLO_FIRE,
+	FIRE_BALL,
+	DIA_INFERNO,
+	ARMA_EXPLOSION,
+	VOL_BASE,
+	VOL_FIRE,
+	VOL_ROCK,
+	VOL_LAVAPOOL,
+	VOL_LAVAEXPLOSION,
+	FIRE_OVERLAY1,
+	FIRE_OVERLAY2,
+	COLD_OVERLAY,
+	TWISTER,
+	METEOR,
+	METEOR_READY,
+	INFERNO,
+	STATIC_FIELD,
+	TYREAL,
+	SKILL_END,
+};
+
+// UI
+enum UI_BAR
+{
+	FRAME_BAR = 0,
+	HP_BAR,
+	MP_BAR,
+	SP_BAR,
+};
+
+enum UI_STAT
+{
+	FRAME_STAT = 0,
+	ACTIVE_NORMAL_STAT,
+	ACTIVE_PRESSED_STAT,
+	DISABLE_STAT,
+	CLOSE_NORMAL_STAT,
+	CLOSE_PRESSED_STAT,
+};
+
+enum UI_STAT_TYPE
+{
+	NORMAL,
+	SKILL,
+	STR,
+	DEX,
+	LIFE,
+	ENERGY,
+};
+
